@@ -46,7 +46,7 @@ def fetch_gainers(api_key):
         df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios)),
                columns =['Ticker', 'Empresa', 'Cambio'])
 
-        
+    df_empresas.set_index('simbolos')
     # df_empresas.sort_values(by=['market_cap'], ascending=False, inplace=True)
 
     return df_empresas
@@ -54,11 +54,8 @@ def fetch_gainers(api_key):
 
 def Calcular_e_imprimir_df(api_key):
     resultados = fetch_gainers(api_key)
-    resultados.style.hide(axis="index")
     st.dataframe(resultados)
     
-
-
 
 
 # Inicio del programa
