@@ -54,7 +54,10 @@ def fetch_gainers(api_key):
 
 def Calcular_e_imprimir_df(api_key):
     resultados = fetch_gainers(api_key)
-    resultados.style.hide_index()
+    
+    blankIndex=[''] * len(resultados)
+    resultados.index=blankIndex
+
     st.dataframe(resultados)
     
 
