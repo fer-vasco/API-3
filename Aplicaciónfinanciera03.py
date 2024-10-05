@@ -46,7 +46,7 @@ def fetch_gainers(api_key):
         df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios)),
                columns =['Ticker', 'Empresa', 'Cambio'])
 
-    df_empresas.set_index('Ticker')
+    df_empresas.set_index('Ticker', inplace=True)
     # df_empresas.sort_values(by=['market_cap'], ascending=False, inplace=True)
 
     return df_empresas
