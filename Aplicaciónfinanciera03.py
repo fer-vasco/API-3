@@ -49,7 +49,8 @@ def fetch_gainers(api_key):
 
         
     df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
-
+    df_empresas.set_index('Ticker', inplace=True)
+    
     return df_empresas
 
 
