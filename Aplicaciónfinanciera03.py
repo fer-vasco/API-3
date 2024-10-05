@@ -30,13 +30,6 @@ def fetch_gainers(api_key):
     response = requests.get(url)
     gainers = response.json()
 
-    '''
-    empresas = {
-        'symbol':'',
-        'name':'',
-        'changesPercentage':'',
-        }'''
-
 
     df_empresas = pd.DataFrame()
     simbolos = []
@@ -44,20 +37,6 @@ def fetch_gainers(api_key):
     cambios = []
 
     for gainer in gainers:
-
-        '''
-        empresas = {
-            'symbol':[gainer['symbol']],
-            'name':[gainer['name']],
-            'changesPercentage':[gainer['changesPercentage']],
-            'market_cap':[market_cap(gainer['symbol'], api_key)]
-            }
-
-        empresas = {
-            'symbol':[gainer['symbol']],
-            'name':[gainer['name']],
-            'changesPercentage':[gainer['changesPercentage']]
-            }'''
 
         simbolos.append(gainer['symbol'])
         nombres.append(gainer['name'])
