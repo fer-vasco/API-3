@@ -30,24 +30,25 @@ def fetch_gainers(api_key):
     response = requests.get(url)
     gainers = response.json()
 
-
+    
     df_empresas = pd.DataFrame()
     simbolos = []
     nombres = []
     cambios = []
+    capitales = []
 
     for gainer in gainers:
 
         simbolos.append(gainer['symbol'])
         nombres.append(gainer['name'])
         cambios.append(gainer['changesPercentage'])
+        capitales.append(market_cap(gainer['symbol'], api_key))
 
-        # df_empresas = pd.concat([df_empresas, pd.DataFrame.from_dict(empresas)])
-        df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios)),
-               columns =['Ticker', 'Empresa', 'Cambio'])
+        df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales)),
+               columns =['Ticker', 'Empresa', 'Cambio', 'Capital'])
 
-    df_empresas.set_index('Ticker', inplace=True)
-    # df_empresas.sort_values(by=['market_cap'], ascending=False, inplace=True)
+        
+    df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
 
     return df_empresas
 
@@ -64,5 +65,7 @@ api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 Parametros_de_visualizacion()
 Imprimir_pantalla()
 Calcular_e_imprimir_df(api_key)
+
+
 
 
