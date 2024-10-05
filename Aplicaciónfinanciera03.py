@@ -66,7 +66,7 @@ def fetch_gainers(api_key):
 
 def Calcular_e_imprimir_df(api_key):
     resultados = fetch_gainers(api_key)
-    st.dataframe(df)
+    st.dataframe(resultados)
 
 
 
