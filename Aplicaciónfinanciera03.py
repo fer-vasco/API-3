@@ -30,11 +30,12 @@ def fetch_gainers(api_key):
     response = requests.get(url)
     gainers = response.json()
 
+    '''
     empresas = {
         'symbol':'',
         'name':'',
         'changesPercentage':'',
-        }
+        }'''
 
 
     df_empresas = pd.DataFrame()
@@ -87,3 +88,5 @@ api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 Parametros_de_visualizacion()
 Imprimir_pantalla()
 Calcular_e_imprimir_df(api_key)
+
+
