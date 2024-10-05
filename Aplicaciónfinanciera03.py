@@ -33,8 +33,7 @@ def fetch_gainers(api_key):
     empresas = {
         'symbol':'',
         'name':'',
-        'changesPercentage':'',
-        'market_cap':''
+        'changesPercentage':''
         }
 
 
@@ -70,13 +69,11 @@ def Calcular_e_imprimir_df(api_key):
 
 
 
-'''
-Inicio del programa
-===================
-'''
+
+# Inicio del programa
+# -------------------
+
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
-
-
 Parametros_de_visualizacion()
 Imprimir_pantalla()
 Calcular_e_imprimir_df(api_key)
