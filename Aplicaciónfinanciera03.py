@@ -33,11 +33,14 @@ def fetch_gainers(api_key):
     empresas = {
         'symbol':'',
         'name':'',
-        'changesPercentage':''
+        'changesPercentage':'',
         }
 
 
     df_empresas = pd.DataFrame()
+    simbolos = []
+    nombres = []
+    cambios = []
 
     for gainer in gainers:
 
@@ -47,15 +50,22 @@ def fetch_gainers(api_key):
             'name':[gainer['name']],
             'changesPercentage':[gainer['changesPercentage']],
             'market_cap':[market_cap(gainer['symbol'], api_key)]
-            }'''
+            }
 
         empresas = {
             'symbol':[gainer['symbol']],
             'name':[gainer['name']],
             'changesPercentage':[gainer['changesPercentage']]
-            }
+            }'''
 
-        df_empresas = pd.concat([df_empresas, pd.DataFrame.from_dict(empresas)])
+        simbolos.append(gainer['symbol'])
+        nombres.append(gainer['name'])
+        cambios.append(gainer['changesPercentage'])
+
+        # df_empresas = pd.concat([df_empresas, pd.DataFrame.from_dict(empresas)])
+        df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios)),
+               columns =['Ticker', 'Empresa', 'Cambio'])
+
         
                 
     # df_empresas.sort_values(by=['market_cap'], ascending=False, inplace=True)
@@ -66,16 +76,14 @@ def fetch_gainers(api_key):
 def Calcular_e_imprimir_df(api_key):
     resultados = fetch_gainers(api_key)
     st.dataframe(resultados)
+    
 
 
 
 
 # Inicio del programa
-# -------------------
 
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 Parametros_de_visualizacion()
 Imprimir_pantalla()
 Calcular_e_imprimir_df(api_key)
-
-
