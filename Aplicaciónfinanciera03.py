@@ -10,9 +10,7 @@ def Parametros_de_visualizacion():
 
 
 def Imprimir_pantalla():
-    st.title('🍁 Resultados')
-    input = st.text_input("Clave 👇")
-
+    
     return input
 
 
@@ -61,9 +59,11 @@ def Calcular_e_imprimir_df(api_key):
 
 
 # Inicio del programa
-text_input = Imprimir_pantalla()
+
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
+st.title('🍁 Resultados')
+text_input = st.text_input("Clave 👇")
 
 if text_input:
     if str(text_input) == clave:
