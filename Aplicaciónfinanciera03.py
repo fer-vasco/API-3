@@ -9,11 +9,6 @@ def Parametros_de_visualizacion():
     pd.set_option('display.width', 1000)
 
 
-def Imprimir_pantalla():
-    
-    return input
-
-
 def market_cap(ticker, api_key):
     url = f'https://financialmodelingprep.com/api/v3/market-capitalization/{ticker}?apikey={api_key}'
     response = requests.get(url)
@@ -63,7 +58,7 @@ def Calcular_e_imprimir_df(api_key):
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
 st.title('🍁 Resultados')
-text_input = st.text_input("Clave 👇")
+text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
     if str(text_input) == clave:
