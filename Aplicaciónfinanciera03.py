@@ -10,11 +10,10 @@ def Parametros_de_visualizacion():
 
 
 def Imprimir_pantalla():
-    corrida = datetime.now()
-    corrida = corrida.strftime('%m-%d-%y %H:%M')
+    st.title('🍁 Resultados')
+    input = st.text_input("Clave 👇")
 
-    st.title('Resultados')
-    st.write(f'Datos actualizados el {corrida}')
+    return input
 
 
 def market_cap(ticker, api_key):
@@ -60,12 +59,25 @@ def Calcular_e_imprimir_df(api_key):
     
 
 
-# Inicio del programa
 
+# Inicio del programa
+text_input = Imprimir_pantalla()
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
-Parametros_de_visualizacion()
-Imprimir_pantalla()
-Calcular_e_imprimir_df(api_key)
+clave = str(123)
+
+if text_input:
+    if str(text_input) == clave:
+        Parametros_de_visualizacion()
+        corrida = datetime.now()
+        corrida = corrida.strftime('%m-%d-%y %H:%M')
+        st.write(f'Datos actualizados el {corrida}')
+        Calcular_e_imprimir_df(api_key)
+    else:
+        st.write("Clave incorrecta")
+
+
+
+
 
 
 
