@@ -64,7 +64,8 @@ if text_input:
         Parametros_de_visualizacion()
         corrida = datetime.now()
         corrida = corrida.strftime('%m-%d-%y %H:%M')
-        st.write(f'Datos actualizados el {corrida}')
+        st.write(f'Actualización de datos:')
+        st.write(corrida)
         Calcular_e_imprimir_df(api_key)
     else:
         st.write("Clave incorrecta")
