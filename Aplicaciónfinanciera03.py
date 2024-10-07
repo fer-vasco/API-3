@@ -58,6 +58,7 @@ api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 clave = str(123)
 st.title('🍁 Resultados!')
 text_input = st.text_input("Clave 👇", type="password")
+st.write(f'Actualizado')
 
 if text_input:
     if str(text_input) == clave:
